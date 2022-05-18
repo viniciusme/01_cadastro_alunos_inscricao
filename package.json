@@ -4,7 +4,7 @@
   "description": "Serviço Web REST com funcionalidades para cadastro de aluno, realizar login \"atenticação\", listar cursos disponíveis para inscrição, realização da inscrição, e cancelamento da inscrição.",
   "main": "index.js",
   "scripts": {
-    "start:dev": "npx nodemon index.js",
+    "dev": "npx nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,7 +18,10 @@
   },
   "homepage": "https://github.com/viniciusme/01_cadastro_alunos_inscricao#readme",
   "dependencies": {
-    "express": "^4.18.1"
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "joi": "^17.6.0",
+    "jsonwebtoken": "^8.5.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.16"
