@@ -14,5 +14,5 @@ app.use((req, res, next) => {
 router(app);
 
 app.listen(porta, () => {
-  console.log("Servidor rodando na porta: ", porta);
+  console.log(`Servidor rodando na porta: ${porta}`);
 });

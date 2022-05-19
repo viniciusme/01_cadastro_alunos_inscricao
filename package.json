@@ -4,7 +4,8 @@
   "description": "Serviço Web REST com funcionalidades para cadastro de aluno, realizar login \"atenticação\", listar cursos disponíveis para inscrição, realização da inscrição, e cancelamento da inscrição.",
   "main": "index.js",
   "scripts": {
-    "dev": "npx nodemon index.js",
+    "start": "node index",
+    "dev": "npx nodemon index",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

@@ -1,4 +1,4 @@
-module.export = (data) => {
+module.exports = (data) => {
   const dataAlunos = [
     {
       id: "1",

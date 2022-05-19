@@ -1,6 +1,6 @@
 module.exports = (routerApp) => {
   routerApp.get("/cursos", (req, res, next) => {
-    console.log(req.query.status);
+    console.log(req.query);
 
     res.status(200).json("Rota cursos funcionando!");
   });
