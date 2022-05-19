@@ -1,5 +1,5 @@
-module.exports = (routerApp) => {
-  routerApp.get("/cursos", (req, res, next) => {
+module.exports = (router) => {
+  router.get("/cursos", (req, res, next) => {
     console.log(req.query.status);
 
     const status = "ativo";
@@ -14,7 +14,7 @@ module.exports = (routerApp) => {
     res.status(200).json("Rota cursos funcionando!");
   });
 
-  routerApp.post("/cursos/:id/inscricoes", (req, res) => {
+  router.post("/cursos/:id/inscricoes", (req, res) => {
     console.log(req.params);
     console.log(req.body);
 

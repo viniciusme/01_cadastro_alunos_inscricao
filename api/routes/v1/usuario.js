@@ -1,5 +1,5 @@
-module.exports = (routerApp) => {
-  routerApp.post("/auth", (req, res, next) => {
+module.exports = (router) => {
+  router.post("/auth", (req, res, next) => {
     console.log(req.body);
 
     // validar os dados recebidos
@@ -23,7 +23,7 @@ module.exports = (routerApp) => {
     res.status(200).send("Login realizado com sucesso!");
   });
 
-  routerApp.post("/alunos", (req, res, next) => {
+  router.post("/alunos", (req, res, next) => {
     console.log(req.body);
     res.status(200).json("Rota cursos funcionando!");
   });
