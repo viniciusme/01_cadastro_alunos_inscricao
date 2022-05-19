@@ -2,14 +2,14 @@ module.exports = (routerApp) => {
   routerApp.get("/cursos", (req, res, next) => {
     console.log(req.query.status);
 
-    // const status = req.query.status;
+    const status = "ativo";
+    console.log(status);
 
-    // if (status) {
-    //   if (!status.includes(req.query.status));
-    //   return res.status(400).send("O status informado é inválido");
-    // }
-
-    // res.status(200).json(data);
+    if (status === req.query.status) {
+      res.status(200).json("O status informado é válido");
+    } else {
+      return res.status(400).send("O status informado é inválido");
+    }
 
     res.status(200).json("Rota cursos funcionando!");
   });
