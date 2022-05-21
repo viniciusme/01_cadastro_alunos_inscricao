@@ -1,30 +1,39 @@
+const express = require("express");
+const Validator = require("../../middlewares/Validator");
+
 module.exports = (router) => {
-  router.post("/auth", (req, res, next) => {
+  router.post("/auth", Validator("login"), (req, res, next) => {
     console.log(req.body);
+    const accessToken = Date.now();
+    const refreshToken = Date.now();
 
-    // validar os dados recebidos
-
-    if (!req.body.login) {
-      res.status(400).send("login não informado!");
-    }
-
-    if (!req.body.password) {
-      res.status(400).send("Password não informado!");
-    }
-
-    //pesquisar na base de dados
-
-    // verificar se a senha está correta
-
-    // construir JWT para o usuário
-
-    // devolver a credencial JWT
-
-    res.status(200).send("Login realizado com sucesso!");
+    res.json(
+      `Sejá Bem Vindo! ${req.body.email}! ${(accessToken, refreshToken)}`
+    );
   });
 
-  router.post("/alunos", (req, res, next) => {
+  router.post("/cadastro", Validator("register"), (req, res, next) => {
     console.log(req.body);
-    res.status(200).json("Rota cursos funcionando!");
+    // res.send(req.body.nome);
+
+    res.status(200).json(req.body);
+  });
+
+  router.get("/alunos", (req, res, next) => {
+    const alunos = [
+      {
+        id: "1",
+        nome: "Vinicius",
+        email: "vini@vinimendes.com.br",
+      },
+      {
+        id: "2",
+        nome: "Thallyta",
+        email: "thallyta@teste.com.br",
+      },
+    ];
+    console.log(alunos);
+
+    res.status(200).json(alunos);
   });
 };
