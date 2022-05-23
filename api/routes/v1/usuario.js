@@ -1,15 +1,31 @@
 const express = require("express");
+const jwt = require("jsonwebtoken");
 const Validator = require("../../middlewares/Validator");
+
+const dataAlunos = require("../../../db/dataAlunos");
+const dataCurss = require("../../../db/dataCursos");
+
+const SECRET = "vinimendesteste";
 
 module.exports = (router) => {
   router.post("/auth", Validator("login"), (req, res, next) => {
     console.log(req.body);
+
+    if (
+      req.body.email === "vini@vinimendes.com.br" &&
+      req.body.password === "12345"
+    ) {
+      const token = jwt.sign({ user: 1 }, SECRET, { expiresIn: 500 });
+
+      res.json(
+        // `Sejá Bem Vindo! ${req.body.email}! ${(accessToken, refreshToken)}`
+        { auth: true, token }
+      );
+    }
     const accessToken = Date.now();
     const refreshToken = Date.now();
 
-    res.json(
-      `Sejá Bem Vindo! ${req.body.email}! ${(accessToken, refreshToken)}`
-    );
+    res.status(401).end();
   });
 
   router.post("/cadastro", Validator("register"), (req, res, next) => {
@@ -20,20 +36,11 @@ module.exports = (router) => {
   });
 
   router.get("/alunos", (req, res, next) => {
-    const alunos = [
-      {
-        id: "1",
-        nome: "Vinicius",
-        email: "vini@vinimendes.com.br",
-      },
-      {
-        id: "2",
-        nome: "Thallyta",
-        email: "thallyta@teste.com.br",
-      },
-    ];
-    console.log(alunos);
+    console.log(dataAlunos);
+    res.status(200).json(dataAlunos);
+  });
 
-    res.status(200).json(alunos);
+  router.post("/logout", (req, res, next) => {
+    res.end();
   });
 };

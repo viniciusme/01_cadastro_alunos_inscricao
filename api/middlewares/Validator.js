@@ -2,10 +2,13 @@ const createHttpError = require("http-errors");
 
 //* Inclui joi para verificar o tipo de erro
 const Joi = require("joi");
-const jwt = require("jsonwebtoken");
+// const jwt = require("jsonwebtoken");
 
 //* Inclui todos os validadores
 const Validators = require("../validators/index");
+
+// var token = jwt.sign({ foo: " bar " }, " shhhhh ");
+// console.log(token);
 
 module.exports = function (validator) {
   //! Se o validador não existir, jogue err
