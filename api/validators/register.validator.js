@@ -33,8 +33,6 @@ const registerSchema = Joi.object({
     "string.min": `Password não deve ter menos que {#limit} caracteres`,
     "string.max": `Password não deve ter mais que {#limit} caracteres`,
   }),
-
-  
 });
 
 module.exports = registerSchema;

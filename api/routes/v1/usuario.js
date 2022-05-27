@@ -1,33 +1,35 @@
 const express = require("express");
 const jwt = require("jsonwebtoken");
-const Validator = require("../../middlewares/Validator");
 
+const Validator = require("../../middlewares/Validator");
 const usuarioController = require("../../controllers/usuario.controller");
 
 const dataAlunos = require("../../../db/dataAlunos");
-const dataCurss = require("../../../db/dataCursos");
 
 const SECRET = "vinimendesteste";
 
 module.exports = (router) => {
   router.post("/cadastro", Validator("register"), (req, res, next) => {
+    const body = req.body;
+
+    dataAluno.push(body);
+    return res.json(dataAlunos);
+
     res.status(200).json("Cadastro realizado com sucesso!");
   });
 
   router.post("/auth", Validator("login"), (req, res, next) => {
-    console.log(req.body);
+    const body = req.body;
+    console.log(body);
 
-    if (
-      req.body.email === "vini@vinimendes.com.br" &&
-      req.body.password === "12345"
-    ) {
-      const token = jwt.sign({ user: 1 }, SECRET, { expiresIn: 500 });
+    // if (req.body.email === dataAlunos.email && req.body.password === "12345") {
+    //   const token = jwt.sign({ user: 1 }, SECRET, { expiresIn: 500 });
 
-      res.json(
-        // `Sejá Bem Vindo! ${req.body.email}! ${(accessToken, refreshToken)}`
-        { auth: true, token }
-      );
-    }
+    //   res.json(
+    //     // `Sejá Bem Vindo! ${req.body.email}! ${(accessToken, refreshToken)}`
+    //     { auth: true, token }
+    //   );
+    // }
 
     res.status(401).end();
   });

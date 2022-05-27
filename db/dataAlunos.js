@@ -1,4 +1,4 @@
-const dataAlunos = [
+let dataAlunos = [
   {
     id: "1",
     nome: "Vinicius Mendes",
