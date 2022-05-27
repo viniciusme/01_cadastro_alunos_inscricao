@@ -1,3 +1,5 @@
+const usuarioController = require("../controllers/usuario.controller");
+
 const Joi = require("joi");
 
 const loginSchema = Joi.object({

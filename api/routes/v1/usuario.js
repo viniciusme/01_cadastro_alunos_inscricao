@@ -2,12 +2,18 @@ const express = require("express");
 const jwt = require("jsonwebtoken");
 const Validator = require("../../middlewares/Validator");
 
+const usuarioController = require("../../controllers/usuario.controller");
+
 const dataAlunos = require("../../../db/dataAlunos");
 const dataCurss = require("../../../db/dataCursos");
 
 const SECRET = "vinimendesteste";
 
 module.exports = (router) => {
+  router.post("/cadastro", Validator("register"), (req, res, next) => {
+    res.status(200).json("Cadastro realizado com sucesso!");
+  });
+
   router.post("/auth", Validator("login"), (req, res, next) => {
     console.log(req.body);
 
@@ -22,25 +28,25 @@ module.exports = (router) => {
         { auth: true, token }
       );
     }
-    const accessToken = Date.now();
-    const refreshToken = Date.now();
 
     res.status(401).end();
   });
 
-  router.post("/cadastro", Validator("register"), (req, res, next) => {
+  router.get("/usuario", (req, res, next) => {
     console.log(req.body);
-    // res.send(req.body.nome);
 
-    res.status(200).json(req.body);
+    res.status(200).json("Rota usuários funcionando!");
   });
 
   router.get("/alunos", (req, res, next) => {
     console.log(dataAlunos);
+
     res.status(200).json(dataAlunos);
   });
 
-  router.post("/logout", (req, res, next) => {
-    res.end();
+  router.get("/aluno/:id", (req, res, next) => {
+    console.log(req.params.id);
+
+    res.status(200).json(req.params.id);
   });
 };
