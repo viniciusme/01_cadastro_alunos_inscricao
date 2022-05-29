@@ -6,3 +6,17 @@ const sequelize = new Sequelize("cad_aluno", "root", "", {
 });
 
 module.exports = sequelize;
+
+//   console.log(req.query.status);
+
+//   const status = "ativo";
+//   console.log(dataCursos);
+//   res.status(200).json(dataCursos);
+
+//   if (status === req.query.status) {
+//     res.status(200).json("O status informado é válido");
+//   } else {
+//     return res.status(400).send("O status informado é inválido");
+//   }
+
+//   res.status(200).json("Rota cursos funcionando!");

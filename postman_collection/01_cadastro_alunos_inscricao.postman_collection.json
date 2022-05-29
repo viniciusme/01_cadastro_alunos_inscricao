@@ -1,0 +1,267 @@
+{
+	"info": {
+		"_postman_id": "1f318101-3962-4b56-90b1-d99eed5f4b38",
+		"name": "01_cadastro_alunos_inscricao",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19754333"
+	},
+	"item": [
+		{
+			"name": "/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cadastro",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"vini@vinimendes.com.br\",\r\n  \"firstname\": \"Vinicius\",\r\n  \"lastname\": \"Mendes\",\r\n  \"phone\": \"34996686645\",\r\n  \"birthdate\": \"1982\",\r\n  \"password\": \"12345678\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/v1/cadastro",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"v1",
+						"cadastro"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "auth",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoxLCJpYXQiOjE2NTMzNDQwNjIsImV4cCI6MTY1MzM0NDU2Mn0.AtJbdLgJsW8tu_-HZoQ-yFeFBvWXZOqBX_No8TDig3s",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"\",\r\n    \"password\": \"12345\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/v1/auth",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"v1",
+						"auth"
+					],
+					"query": [
+						{
+							"key": "login",
+							"value": "vini@vinimendes.com",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "12345678",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "alunos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/v1/alunos",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"v1",
+						"alunos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "aluno ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/v1/aluno/2",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"v1",
+						"aluno",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cursos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/v1/cursos?status=ativo",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"v1",
+						"cursos"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "ativo"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cursos_inscricao",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"alunoEmail\": \"vinicius@vinimendes.com.br\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/v1/cursos/1/inscricoes",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"v1",
+						"cursos",
+						"1",
+						"inscricoes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "inscricoes",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/v1/inscricoes",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"v1",
+						"inscricoes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cancelar_inscricao",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/v1/inscricoes",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"v1",
+						"inscricoes"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

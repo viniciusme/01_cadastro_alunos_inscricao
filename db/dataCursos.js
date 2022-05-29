@@ -1,4 +1,4 @@
-const dataCursos = [
+let dataCursos = [
   {
     id: "1",
     nome: "Curso 1",

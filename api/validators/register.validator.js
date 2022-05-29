@@ -1,7 +1,5 @@
 const Joi = require("joi");
 
-// const usuarioController = require("../controllers/usuario.controller");
-
 const registerSchema = Joi.object({
   email: Joi.string().email().lowercase().required().messages({
     "any.required": `E-mail é um campo obrigatório`,
