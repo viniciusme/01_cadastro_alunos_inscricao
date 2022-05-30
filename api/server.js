@@ -12,10 +12,10 @@ app.use(cors());
 
 const router = require("./routes/router");
 
-const porta = 3000;
+const port = process.env.PORT || 3000;
 
 router(app);
 
-app.listen(porta, () => {
-  console.log(`Servidor rodando em: http://localhost:${porta}`);
+app.listen(port, () => {
+  console.log(`Servidor rodando em: http://localhost:${port}`);
 });

@@ -1,2 +1,8 @@
 # Pasta de genriador de pacotes - node_modules
 /node_modules/
+
+
+# dotenv environment variables files 
+.env
+.env.test
+.env.production
