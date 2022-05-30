@@ -58,18 +58,13 @@
 					{
 						"key": "Content-Type",
 						"value": "application/json",
-						"type": "text"
-					},
-					{
-						"key": "x-access-token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoxLCJpYXQiOjE2NTMzNDQwNjIsImV4cCI6MTY1MzM0NDU2Mn0.AtJbdLgJsW8tu_-HZoQ-yFeFBvWXZOqBX_No8TDig3s",
 						"type": "text",
 						"disabled": true
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"email\": \"\",\r\n    \"password\": \"12345\"\r\n}",
+					"raw": "{\r\n   \"email\": \"vini@vinimendes.com.br\",\r\n   \"password\": \"12345\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -125,14 +120,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{host}}/v1/aluno/2",
+					"raw": "{{host}}/v1/aluno/3",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"v1",
 						"aluno",
-						"2"
+						"3"
 					]
 				}
 			},
@@ -235,11 +230,8 @@
 		},
 		{
 			"name": "cancelar_inscricao",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
-				"method": "GET",
+				"method": "DELETE",
 				"header": [],
 				"body": {
 					"mode": "raw",
@@ -251,13 +243,14 @@
 					}
 				},
 				"url": {
-					"raw": "{{host}}/v1/inscricoes",
+					"raw": "{{host}}/v1/curso/24748",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"v1",
-						"inscricoes"
+						"curso",
+						"24748"
 					]
 				}
 			},
